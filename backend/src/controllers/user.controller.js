@@ -2,7 +2,7 @@ import userService from '../services/user.service.js'
 
 const createUser = async (req, res) => {
     try {
-        const { userName, name, password, email, avatar } = req.body;
+        const { name, userName, password, email, avatar } = req.body;
 
         if (!userName || !name || !email || !password || !avatar) {
             return res.status(400)
