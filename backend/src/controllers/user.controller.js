@@ -32,6 +32,22 @@ const createUser = async (req, res) => {
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const user = await userService.getAllUsers();
+
+        if (!user) {
+            return res.status(400)
+                .send({ message: 'Acho que o usuário não foi encontrado !?' })
+        }
+
+        return res.status(200).send(user);
+    } catch (error) {
+        res.status(500).send({ message: error.message })
+    }
+}
+
 export default {
     createUser,
+    getAllUsers,
 };
