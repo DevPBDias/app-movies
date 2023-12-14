@@ -57,8 +57,34 @@ const getUserById = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    try {
+        const { name, userName, password, email, avatar } = req.body;
+        const { id } = req;
+
+        if (!userName && !name && !email && !password && !avatar) {
+            return res.status(400)
+                .send({ message: 'Preencha algum campo para atualizar usuário' })
+        }
+
+        await userService.updateUser(
+            id,
+            name,
+            userName,
+            email,
+            password,
+            avatar,
+        )
+
+        res.status(201).send({ message: 'Usuário alterado com sucesso'})
+    } catch (error) {
+        res.status(500).send({ message: error.message })
+    }
+}
+
 export default {
     createUser,
     getAllUsers,
     getUserById,
+    updateUser,
 };
