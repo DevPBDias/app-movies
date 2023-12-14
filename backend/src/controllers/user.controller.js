@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import userService from '../services/user.service.js'
 
 const createUser = async (req, res) => {
@@ -50,20 +49,9 @@ const getAllUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
     try {
-        const userId = req.params.id;
-        
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return res.status(400).send({ message: "ID inválido!" });
-        }
+        const userFound = req.user;
 
-        const userFound = await userService.getUserById(userId);
-
-        if (!userFound) {
-            return res.status(400)
-                .send({ message: 'Acho que o usuário não foi encontrado !?' })
-        }
-
-        return res.status(200).send(userFound);
+        return res.send(userFound);
     } catch (error) {
         res.status(500).send({ message: error.message })
     }
