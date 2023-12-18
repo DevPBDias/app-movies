@@ -1,17 +1,27 @@
 import loginService from "../services/login.service.js";
+import bcrypt from "bcrypt";
+
 
 const loginUser = async (req, res) => {
     try {
-        const { email } = req.body;
+        const { email, password } = req.body;
 
         const getUser = await loginService.getUserLogin(email);
 
         if (!getUser) {
             return res.status(400)
-                .send({ message: 'Email ou senha incorreto!' })
+                .send({ message: 'Email e/ou senha incorretos!' })
         }
 
-        res.send(getUser);
+        const passwordIsValid = bcrypt.compareSync(password, getUser.password);
+
+        if (!passwordIsValid) {
+            return res.status(404).send({ message: "Email e/ou senha incorretos!" });
+        }
+
+        const token = loginService.generateToken(getUser.id)
+
+        res.send({ token });
     } catch (error) {
         res.status(500).send({ message: error.message })
 
