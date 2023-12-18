@@ -30,7 +30,7 @@ const updateMovie = (
     );
 
 const lastMovies = () =>
-    Movie.findOne().sort({ _id: -1 });
+    Movie.find().sort({ launchDate: -1 }).limit(10);
 
 export default {
     createMovie,
