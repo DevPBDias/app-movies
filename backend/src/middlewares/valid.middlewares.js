@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import userService from "../services/user.service.js";
 
 export const validationId = (req, res, next) => {
-    const userId = req.params.id;
+    const id = req.params.id;
 
-    if (!mongoose.Types.ObjectId.isValid(userId)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({ message: "ID inválido!" });
     }
 
