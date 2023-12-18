@@ -5,9 +5,11 @@ import { authMiddleware } from '../middlewares/login.middlewares.js';
 
 const movieRoute = Router();
 
-movieRoute.post('/', authMiddleware, movieController.createMovie)
+
 movieRoute.get('/', movieController.getAllMovies)
+movieRoute.get('/latest', movieController.lastMovies)
 movieRoute.get('/:id', validationId, validationMovie, movieController.getMovieById)
+movieRoute.post('/', authMiddleware, movieController.createMovie)
 movieRoute.patch('/:id', authMiddleware, validationId, validationMovie, movieController.updateMovie)
 
 export default movieRoute;

@@ -90,9 +90,36 @@ const updateMovie = async (req, res) => {
     }
 }
 
+const lastMovies = async (req, res) => {
+    try {
+        const movies = await movieService.lastMovies();
+
+        if (!movies) {
+            return res.status(400).send({ message: 'Nenhum elemento encontrado' })
+        }
+
+        res.status(200).send({
+            movies: {
+                id: movies._id,
+                name: movies.name,
+                launchDate: movies.launchDate,
+                actors: movies.actors,
+                director: movies.director,
+                image: movies.image,
+                whereToWatch: movies.whereToWatch,
+                category: movies.category,
+                type: movies.type,
+            },
+        })
+    } catch (error) {
+        res.status(500).send({ message: error.message })
+    }
+}
+
 export default {
     createMovie,
     getAllMovies,
     getMovieById,
     updateMovie,
+    lastMovies
 }

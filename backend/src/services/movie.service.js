@@ -29,9 +29,13 @@ const updateMovie = (
         { rawResult: true }
     );
 
+const lastMovies = () =>
+    Movie.findOne().sort({ _id: -1 });
+
 export default {
     createMovie,
     getAllMovies,
     getMovieById,
     updateMovie,
+    lastMovies,
 }
