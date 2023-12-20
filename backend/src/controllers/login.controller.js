@@ -10,13 +10,13 @@ const loginUser = async (req, res) => {
 
         if (!getUser) {
             return res.status(400)
-                .send({ message: 'Email e/ou senha incorretos!' })
+                .send({ message: 'Email or password wrong' })
         }
 
         const passwordIsValid = bcrypt.compareSync(password, getUser.password);
 
         if (!passwordIsValid) {
-            return res.status(404).send({ message: "Email e/ou senha incorretos!" });
+            return res.status(404).send({ message: "Email or password wrong" });
         }
 
         const token = loginService.generateToken(getUser.id)

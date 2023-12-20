@@ -6,7 +6,7 @@ export const validationId = (req, res, next) => {
     const id = req.params.id;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).send({ message: "ID inválido!" });
+        return res.status(400).send({ message: "Invalid id" });
     }
 
     next();
@@ -18,7 +18,7 @@ export const validationUser = async (req, res, next) => {
     const getUser = await userService.getUserById(userId);
 
     if (!getUser) {
-        return res.status(400).send({ message: 'Acho que o usuário não foi encontrado !?' })
+        return res.status(400).send({ message: 'Not found' })
     }
 
     req.id = userId;
@@ -33,7 +33,7 @@ export const validationMovie = async (req, res, next) => {
     const getMovie = await movieService.getMovieById(movieId);
 
     if (!getMovie) {
-        return res.status(400).send({ message: 'Acho que o filme não foi encontrado !?' })
+        return res.status(400).send({ message: 'Not found' })
     }
 
     req.id = movieId;

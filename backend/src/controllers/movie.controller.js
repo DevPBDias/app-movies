@@ -7,18 +7,18 @@ const createMovie = async (req, res) => {
 
         if (!launchDate || !name || !actors || !director || !image || !whereToWatch || !category || !type) {
             return res.status(400)
-                .send({ message: 'Ih, preencha todos os campos para prosseguir' })
+                .send({ message: 'Submit all fields' })
         }
 
         const movie = await movieService.createMovie(req.body);
 
         if (!movie) {
             return res.status(400)
-                .send({ message: 'Acho que o filme não foi adicionado !?' })
+                .send({ message: 'Not created' })
         }
 
         return res.status(201).send({
-            message: 'Filme adicionado com sucesso!!',
+            message: 'Created',
             movieCreated: {
                 id: movie.id,
                 name,
@@ -42,7 +42,7 @@ const getAllMovies = async (req, res) => {
 
         if (movies.length === 0) {
             return res.status(400)
-                .send({ message: 'Acho que não existe nenhum usuário!!' })
+                .send({ message: 'Not found' })
         }
 
         return res.status(200).send(movies);
@@ -69,7 +69,7 @@ const updateMovie = async (req, res) => {
 
         if (!launchDate && !name && !actors && !director && !image && !whereToWatch && !category && !type) {
             return res.status(400)
-                .send({ message: 'Preencha algum campo para atualizar o filme' })
+                .send({ message: 'Submit at least one field' })
         }
 
         await movieService.updateMovie(
@@ -84,7 +84,7 @@ const updateMovie = async (req, res) => {
             type
         )
 
-        res.status(201).send({ message: 'Filme alterado com sucesso' })
+        res.status(201).send({ message: 'Sucess' })
     } catch (error) {
         res.status(500).send({ message: error.message })
     }
@@ -95,7 +95,7 @@ const lastMovies = async (req, res) => {
         const movies = await movieService.lastMovies();
 
         if (!movies) {
-            return res.status(400).send({ message: 'Nenhum elemento encontrado' })
+            return res.status(400).send({ message: 'Not found' })
         }
 
         res.status(200).send({

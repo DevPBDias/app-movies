@@ -6,18 +6,18 @@ const createUser = async (req, res) => {
 
         if (!userName || !name || !email || !password || !avatar) {
             return res.status(400)
-                .send({ message: 'Ih, preencha todos os campos para prosseguir' })
+                .send({ message: 'Not found' })
         }
 
         const user = await userService.createUser(req.body);
 
         if (!user) {
             return res.status(400)
-                .send({ message: 'Acho que o usuário não foi criado !?' })
+                .send({ message: 'Not found' })
         }
 
         return res.status(201).send({
-            message: 'Usuário criado com sucesso!!',
+            message: 'Created',
             userCreated: {
                 id: user.id,
                 name,
@@ -38,7 +38,7 @@ const getAllUsers = async (req, res) => {
 
         if (users.length === 0) {
             return res.status(400)
-                .send({ message: 'Acho que não existe nenhum usuário!!' })
+                .send({ message: 'Not found' })
         }
 
         return res.status(200).send(users);
@@ -51,7 +51,7 @@ const getUserById = async (req, res) => {
     try {
         const userFound = req.user;
 
-        return res.send(userFound);
+        return res.status(200).send(userFound);
     } catch (error) {
         res.status(500).send({ message: error.message })
     }
@@ -64,7 +64,7 @@ const updateUser = async (req, res) => {
 
         if (!userName && !name && !email && !password && !avatar) {
             return res.status(400)
-                .send({ message: 'Preencha algum campo para atualizar usuário' })
+                .send({ message: 'Submit at least one field' })
         }
 
         await userService.updateUser(
@@ -76,7 +76,7 @@ const updateUser = async (req, res) => {
             avatar,
         )
 
-        res.status(201).send({ message: 'Usuário alterado com sucesso'})
+        res.status(200).send({ message: 'OK'})
     } catch (error) {
         res.status(500).send({ message: error.message })
     }
