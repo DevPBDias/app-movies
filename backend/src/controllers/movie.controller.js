@@ -84,7 +84,7 @@ const updateMovie = async (req, res) => {
             type
         )
 
-        res.status(201).send({ message: 'Sucess' })
+        res.status(201).send({ message: 'Updated' })
     } catch (error) {
         res.status(500).send({ message: error.message })
     }

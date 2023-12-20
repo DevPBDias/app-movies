@@ -6,14 +6,14 @@ const createUser = async (req, res) => {
 
         if (!userName || !name || !email || !password || !avatar) {
             return res.status(400)
-                .send({ message: 'Not found' })
+                .send({ message: 'Submit all fields' })
         }
 
         const user = await userService.createUser(req.body);
 
         if (!user) {
             return res.status(400)
-                .send({ message: 'Not found' })
+                .send({ message: 'Not created' })
         }
 
         return res.status(201).send({
@@ -76,7 +76,7 @@ const updateUser = async (req, res) => {
             avatar,
         )
 
-        res.status(200).send({ message: 'OK'})
+        res.status(200).send({ message: 'Updated'})
     } catch (error) {
         res.status(500).send({ message: error.message })
     }

@@ -12,6 +12,10 @@
       {
         "url": "http://localhost:3004",
         "description": "Local Server"
+      },
+      {
+        "url": "https://app-trailer-movies.onrender.com/",
+        "description": "Web Server"
       }
     ],
     "paths": {
@@ -30,7 +34,7 @@
                   "Users": {
                     "value": {
                       "name": "Paulo Bruno",
-                      "username": "devpbdias",
+                      "userName": "devpbdias",
                       "email": "devpbdias@gmail.com",
                       "password": "basket123",
                       "avatar": "https://imgur.com/Lae9CiB"
@@ -139,7 +143,7 @@
                 "examples": {
                   "Users": {
                     "value": {
-                      "name": "Thiago Lima"
+                      "name": "Paulo Dias"
                     }
                   }
                 }
@@ -404,7 +408,7 @@
             "name": {
               "type": "string"
             },
-            "username": {
+            "userName": {
               "type": "string"
             },
             "email": {

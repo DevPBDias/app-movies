@@ -8,7 +8,7 @@ export const authMiddleware = (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return res.send(401);
+      return res.status(401).send({message: 'Not authorized'});
     }
 
     const authParts = authorization.split(" ");
@@ -25,13 +25,13 @@ export const authMiddleware = (req, res, next) => {
 
     jwt.verify(token, process.env.SECRET_JWT, async (error, decoded) => {
       if (error) {
-        return res.status(401).send({ message: "Token inválido!" });
+        return res.status(401).send({ message: "Invalid token" });
       }
 
       const getUser = await userService.getUserById(decoded.id);
 
       if (!getUser || !getUser.id) {
-        return res.status(401).send({ message: "Inválido token!" });
+        return res.status(401).send({ message: "Invalid token" });
       }
 
       req.userId = getUser.id;

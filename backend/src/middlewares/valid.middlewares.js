@@ -18,7 +18,7 @@ export const validationUser = async (req, res, next) => {
     const getUser = await userService.getUserById(userId);
 
     if (!getUser) {
-        return res.status(400).send({ message: 'Not found' })
+        return res.status(400).send({ message: 'User not found' })
     }
 
     req.id = userId;
@@ -33,7 +33,7 @@ export const validationMovie = async (req, res, next) => {
     const getMovie = await movieService.getMovieById(movieId);
 
     if (!getMovie) {
-        return res.status(400).send({ message: 'Not found' })
+        return res.status(400).send({ message: 'Movie not found' })
     }
 
     req.id = movieId;
