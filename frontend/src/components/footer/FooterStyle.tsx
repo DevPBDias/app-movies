@@ -12,6 +12,7 @@ export const FooterContainer = styled.footer`
     position: fixed;
     bottom: 0;
     right: 0;
+    z-index: 2;
 
     a {
         display: flex;
