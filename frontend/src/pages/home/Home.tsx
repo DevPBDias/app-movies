@@ -9,7 +9,7 @@ import { BtnsContainer, MovieCardContainer } from './HomeStylex'
 export default function Home() {
    return (
       <>
-         <Header />
+         <Header content='Bem vindo , Usuario!'/>
          <SearchBtn />
          <BtnsContainer>
             <TypeBtn nameBtn='Filmes' />
@@ -21,6 +21,7 @@ export default function Home() {
                moviesData.map((item) => (
                   <MovieCard
                      key={item._id}
+                     icon={true}
                      image={item.image}
                      name={item.name}
                   />

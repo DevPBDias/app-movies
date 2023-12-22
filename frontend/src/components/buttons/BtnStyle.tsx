@@ -16,8 +16,8 @@ export const SearchContainer = styled.div`
     }
 
     input {
-        height: 1.5rem;
-        width: 50%;
+        height: 2rem;
+        width: 60%;
         border-radius: 4px;
 
         &::placeholder {

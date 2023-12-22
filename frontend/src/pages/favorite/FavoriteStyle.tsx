@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-export const BtnsContainer = styled.div`
+export const BtnBox = styled.div`
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
     justify-content: space-evenly;
     justify-items: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 4rem;
 `;
 
-export const MovieCardContainer = styled.div`
+export const FavoritesContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -19,4 +19,5 @@ export const MovieCardContainer = styled.div`
     justify-content: space-evenly;
     justify-items: center;
     align-items: center;
+    margin-bottom: 6rem;
 `;
