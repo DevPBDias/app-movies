@@ -8,7 +8,7 @@ export const GlobalStyled = createGlobalStyle`
     padding: 0;
     font-family: Newsreader, Arial;
     text-decoration: none;
-    /* border: 1px solid red; */
+    border: 1px solid red;
   }
 
   html {
