@@ -6,7 +6,11 @@ const MovieSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    launchDate: {
+    year: {
+        type: String,
+        required: true,
+    },
+    company: {
         type: String,
         required: true,
     },
@@ -22,7 +26,11 @@ const MovieSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    whereToWatch: {
+    linkTrailer: {
+        type: String,
+        required: true,
+    },
+    platform: {
         type: String,
         required: true,
     },

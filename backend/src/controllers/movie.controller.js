@@ -2,10 +2,18 @@ import movieService from '../services/movie.service.js'
 
 const createMovie = async (req, res) => {
     try {
-        const { name, launchDate, director, actors, image,
-            whereToWatch, category, type } = req.body;
+        const { name,
+            year,
+            company,
+            linkTrailer,
+            actors,
+            image,
+            category,
+            type,
+            director,
+            platform } = req.body;
 
-        if (!launchDate || !name || !actors || !director || !image || !whereToWatch || !category || !type) {
+        if (!year || !name || !actors || !director || !image || !platform || !category || !type || !linkTrailer || !company) {
             return res.status(400)
                 .send({ message: 'Submit all fields' })
         }
@@ -22,13 +30,15 @@ const createMovie = async (req, res) => {
             movieCreated: {
                 id: movie.id,
                 name,
-                launchDate,
+                year,
+                company,
+                linkTrailer,
                 actors,
-                director,
                 image,
-                whereToWatch,
                 category,
-                type
+                type,
+                director,
+                platform 
             }
         });
     } catch (error) {
@@ -64,10 +74,18 @@ const getMovieById = async (req, res) => {
 const updateMovie = async (req, res) => {
     try {
         const { id } = req;
-        const { name, launchDate, director, actors, image,
-            whereToWatch, category, type } = req.body;
+        const { name,
+            year,
+            company,
+            linkTrailer,
+            actors,
+            image,
+            category,
+            type,
+            director,
+            platform } = req.body;
 
-        if (!launchDate && !name && !actors && !director && !image && !whereToWatch && !category && !type) {
+        if (!launchDate && !name && !actors && !director && !image && !platform && !category && !type && !linkTrailer && ! company) {
             return res.status(400)
                 .send({ message: 'Submit at least one field' })
         }
@@ -75,13 +93,15 @@ const updateMovie = async (req, res) => {
         await movieService.updateMovie(
             id,
             name,
-            launchDate,
+            year,
+            company,
+            linkTrailer,
             actors,
-            director,
             image,
-            whereToWatch,
             category,
-            type
+            type,
+            director,
+            platform 
         )
 
         res.status(201).send({ message: 'Updated' })
@@ -102,13 +122,15 @@ const lastMovies = async (req, res) => {
             movies: {
                 id: movies._id,
                 name: movies.name,
-                launchDate: movies.launchDate,
+                year: movies.year,
+                company: movies.company,
+                linkTrailer: movies.linkTrailer,
                 actors: movies.actors,
-                director: movies.director,
                 image: movies.image,
-                whereToWatch: movies.whereToWatch,
                 category: movies.category,
                 type: movies.type,
+                director: movies.director,
+                platform: movies.platform,
             },
         })
     } catch (error) {

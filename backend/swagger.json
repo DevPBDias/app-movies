@@ -219,13 +219,15 @@
                   "Movies": {
                     "value": {
                         "name": "Avengers",
-                        "launchDate": "20/12/2020",
+                        "year": "2020",
                         "actors": "RDJ, Chris Evans, Tom Hidleston",
                         "director": "Russo Brothers",
                         "image": "https://static.wikia.nocookie.net/dublagem/images/d/d0/Marvels-avengers-boxart-02-ps4-04feb20-en-us.jpg/revision/latest/scale-to-width-down/350?cb=20201023012810&path-prefix=pt-br",
-                        "whereToWatch": "Theathers, Disney+",
+                        "platform": "Disney+",
                         "category": "Action",
-                        "type": "movie"
+                        "type": "movie",
+                        "company": "Marvel Studios",
+                        "linkTrailer": "https://www.youtube.com/watch?v=PgrmbRID0eY&ab_channel=MarvelBrasil"
                     }
                   }
                 }
@@ -357,14 +359,16 @@
                 "examples": {
                   "Movie": {
                     "value": {
-                        "name": "Avengers Ultimato",
-                        "launchDate": "20/12/2021",
+                        "name": "Avengers",
+                        "year": "2020",
                         "actors": "RDJ, Chris Evans, Tom Hidleston",
                         "director": "Russo Brothers",
                         "image": "https://static.wikia.nocookie.net/dublagem/images/d/d0/Marvels-avengers-boxart-02-ps4-04feb20-en-us.jpg/revision/latest/scale-to-width-down/350?cb=20201023012810&path-prefix=pt-br",
-                        "whereToWatch": "Disney+",
+                        "platform": "Disney+",
                         "category": "Action",
-                        "type": "movie"
+                        "type": "movie",
+                        "company": "Marvel Studios",
+                        "linkTrailer": "https://www.youtube.com/watch?v=PgrmbRID0eY&ab_channel=MarvelBrasil"
                     }
                   }
                 }
@@ -428,7 +432,7 @@
             "name": {
               "type": "string"
             },
-            "launchDate": {
+            "year": {
               "type": "string"
             },
             "director": {
@@ -440,13 +444,19 @@
             "image": {
               "type": "string"
             },
-            "whereToWatch": {
+            "platform": {
               "type": "string"
             },
             "category": {
               "type": "string"
             },
             "type": {
+                "type": "string"
+            },
+            "company": {
+                "type": "string"
+            },
+            "linkTrailer": {
                 "type": "string"
             },
             "createdAt": {

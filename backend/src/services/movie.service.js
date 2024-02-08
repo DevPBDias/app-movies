@@ -7,24 +7,28 @@ const getMovieById = (id) => Movie.findById(id);
 const updateMovie = (
     id,
     name,
-    launchDate,
+    year,
+    company,
+    linkTrailer,
     actors,
-    director,
     image,
-    whereToWatch,
     category,
-    type
+    type,
+    director,
+    platform,
 ) =>
     Movie.findOneAndUpdate({ _id: id },
         {
             name,
-            launchDate,
+            year,
+            company,
+            linkTrailer,
             actors,
-            director,
             image,
-            whereToWatch,
             category,
-            type
+            type,
+            director,
+            platform,
         },
         { rawResult: true }
     );
