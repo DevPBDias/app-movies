@@ -4,7 +4,7 @@
 
 Aplicação oriunda de um dos projeto do curso de Ux design em que fiz o mockup do Figma e criei suas funcionalidades de acordo com o design do produto.
 
-Link para o estudo de caso do [projeto App Trailer](https://ux-portfolio-pbdias.vercel.app/project/3)
+Link para o estudo de caso do [projeto App Trailer](https://ux-portfolio-pbdias.vercel.app)
 
 <details><summary>Stack utilizada</summary>
 <ul>
